@@ -1,0 +1,23 @@
+{
+  "name": "nr_2_node",
+  "version": "1.0.0",
+  "description": "Aplicação em Node.js, na qual irá receber pacotes Json, via Mqtt, parsea-lo e alimentar um banco de dados MySQl. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Walverde/NR_2_Node.git"
+  },
+  "author": "Walgreen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Walverde/NR_2_Node/issues"
+  },
+  "homepage": "https://github.com/Walverde/NR_2_Node#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sequelize": "^6.3.4"
+  }
+}
