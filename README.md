@@ -26,6 +26,7 @@ Criando projeto com npm
 → npm init // vai perguntar a versão e nome do projeto.
 → npm install express --save  
 → npm install sequelize --save 
+→ npm install mqtt --save 
 
 
 
