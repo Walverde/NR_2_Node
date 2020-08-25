@@ -1,10 +1,8 @@
 # NR_2_Node
 
-╔═════════════════════════════════════════════╗
-║     Aplicação em Node.js, na qual irá       ║
-║ receber pacotes Json, via Mqtt, parsea-la   ║
-║ e alimentar um banco de dados MySQl.        ║
-╚═════════════════════════════════════════════╝
+
+     Aplicação em Node.js, na qual irá receber pacotes Json, via Mqtt, parsea-la  e alimentar um banco de dados MySQl.        
+
 
 [Sendor] → -mqtt-→ [Aplicação Node.js] → [mysql] 
                              ↓
@@ -22,6 +20,7 @@ Instalações------------------------------
 
 
 npm--------------------------------------
+ 
 Criando projeto com npm 
 → npm init // vai perguntar a versão e nome do projeto.
 → npm install express --save  
