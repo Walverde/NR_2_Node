@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js" 
+    "dev": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,8 +20,12 @@
   "dependencies": {
     "express": "^4.17.1",
     "mqtt": "^4.2.1",
+    "mysql2": "^2.1.0",
     "pg": "^8.3.2",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.3.4"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
   }
 }
