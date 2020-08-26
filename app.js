@@ -3,11 +3,11 @@ const bodyParser = require('body-parser');
 const router = express.Router();
 const app = express();
 
-const path = __dirname + '/views/'; // instanciando endereço dos aquivos estatics
+const path = __dirname + '/views/'; // "instanciando" endereço dos aquivos estatics
 const port = 80;
 
 app.use(express.static(path)); // enviando os arquivos Estaticos
-app.use('/', router);
+app.use('/', router); // quando requediro a home, sera enviado, router. 
 
 app.use(express.urlencoded())
 
@@ -20,7 +20,7 @@ router.get('/', function(req,res){
 });
 
 app.post('/enviar', function(req,res){
-    var msg = req.body.mensaje
+    var msg = req.body.mensage // parceando body e "achando o elemento" message
     var broker = req.body.broker
     if(broker.search('mqtt://') == -1) {
         broker = 'mqtt://' + broker;
@@ -34,7 +34,7 @@ app.post('/enviar', function(req,res){
         client.on('connect', function () {
             
             client.publish(topic, msg)
-            console.log("Mensaje enviado");
+            console.log("Messagem envida"); // printando no console, 'Ok" de messagem enviada. 
             client.end();
         })
                 
@@ -42,8 +42,7 @@ app.post('/enviar', function(req,res){
     }
 });
   
-
-
+// escutado na porta.... (Sevidor)
 app.listen(port, function () {
     console.log('Ejecutando en puerto 80: http://localhost')
 })

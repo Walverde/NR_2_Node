@@ -24,6 +24,9 @@ Criando projeto com npm
 → npm init // vai perguntar a versão e nome do projeto.
 → npm install express --save  
 → npm install sequelize --save 
+→ npm install sequelize-cli --save // para console Sequelize. * 
+→ npm install pg --save
+→ npm install pg-hstore --save
 → npm install mqtt --save 
 
 
