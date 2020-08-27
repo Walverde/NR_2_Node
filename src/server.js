@@ -2,7 +2,7 @@
 
 // const express = require('express'); // importando express. 
 const routes = require('./routes'); // importando arquivo de rotas. 
-
+require('./database')
 // const app = express(); // instanciando Express. 
 
 
@@ -10,6 +10,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // const router = express.Router();
 
+// valor para porta. 
 const port = 4000
 
 // let app = express();

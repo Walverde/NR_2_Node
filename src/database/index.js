@@ -1,3 +1,5 @@
+// cone 
+
 const { Sequelize } = require('sequelize'); // importando sequelize. 
 const dbacess = require('../acessos/databases.js'); // importando credenciais de acesso ao db. 
 const User = require('../models/User'); // importando modelo de tabela. 
