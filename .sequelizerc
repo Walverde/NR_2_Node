@@ -1,0 +1,10 @@
+// importando o Path, do proprio node, para lidar com pastas. (A notação 'nomepasta','nomesegundapasta')
+const path = require('path');
+
+module.exports = {
+    config: path.resolve(__dirname, 'src', 'acessos', 'databases.js'),
+    'migrations-path': path.resolve(__dirname, 'src', 'database', 'migrations'),
+};
+
+//[config] aquivo de configuração do sequelize. Para poder "habilitar a configuração de acesso 'modular'"
+//[migrations-path] onde sera armazendo o migrations. 
