@@ -19,6 +19,10 @@ const routes = express.Router(); //
 // })
 
 
-routes.post('/users', usercontol.store);
+routes.post('/users', usercontol.store); // exemplo de rota para cadastro de novas linhas. (Sera usado com o pacote json do Mqtt)
+
+
+routes.get('/users', usercontol.index); // exemplo de rota para Busca. Via Index, metodo do controler. 
+
 
 module.exports = routes; // exportando as rotas criadas. 
