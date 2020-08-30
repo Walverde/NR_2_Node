@@ -27,9 +27,9 @@ NPM--------------------------------------
 → npm install sequelize --save 
 → npm install --save-dev sequelize-cli // para console Sequelize. * 
    → npx sequelize [comando] // para enviar comandos ao sequelze no console.
-   → npx sequelize migration:create --name=nome_da_migration //criando uma migrate 
+   → npx sequelize migration:create --name=nome_da_migration // (banco de dados) criando uma migrate 
    → npx sequelize db:migrate // criando uma tabela com o arquivo Migration
-   → npx sequelize db:migrate // desfaz a ultima ateração. 
+   → npx sequelize db:migrate undo // desfaz a ultima ateração. 
 → npm install pg --save
 → npm install pg-hstore --save
 → npm install mqtt --save 
