@@ -21,12 +21,7 @@ var Database_URL = 'localhost';
 // })
 
 var Topic = "node";
-var messagem = """{
-  "nome":"alo",
-  "email":"alo"
-}"""
-
-// configurações
+var messagem = '{"nome": "nana","email":"anan@adsads2"}' 
 
 var options = {
 	clientId: 'node',
@@ -40,22 +35,24 @@ var client  = mqtt.connect(Broker_URL, options);
 client.on('connect', mqtt_connect);
 // client.on('reconnect', mqtt_reconnect);
 // client.on('error', mqtt_error);
-client.on('message', mqtt_messsageReceived);
-// client.on('close', mqtt_close);
+// client.on('message', mqtt_messsageReceived);
+client.on('close', mqtt_close);
 
 
 // Publicando
 
-client.on('connect', function () {
-    client.subscribe(topic, function (err) {
+// client.on('connect', function () {
+    function mqtt_connect () {
+    client.subscribe(Topic, function (err) {
       if (!err) {
-        client.publish(topic, messagem)
+        client.publish(Topic, messagem)
         // var msn = client.subscribe('node')
         // console.log = (msn)
+        
       }
-      
     })
-  })
+  }
+  function mqtt_close(){}
 
 
 // inscrevendo. 
@@ -77,9 +74,8 @@ client.on('connect', function () {
 //   console.log(message_json.email)
 //   return message_str
   
-}
 
-module.exports = mqtt_messsageReceived
+// module.exports = mqtt_messsageReceived
 
 
 

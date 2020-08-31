@@ -1,5 +1,7 @@
 import paho.mqtt.client as mqtt
+
 import json
+
 # Define Variables
 MQTT_HOST = "localhost"
 MQTT_PORT = 1883
