@@ -113,7 +113,7 @@ const sequelize = new Sequelize ('exemplo','root','0101',{
   // User.create({name: "wal",email: "d2"})  
 
   // console.log(message_str.nome + message_str.email)
-  console.log(d1 + d2 + "isso ")
+  console.log(d1 + d2 + "isso")
   // var {nome, email} =  message_str.body
 
   
