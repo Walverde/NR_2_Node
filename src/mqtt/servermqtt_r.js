@@ -1,14 +1,29 @@
 // Imports
 
+
+// const { Model, DataTypes } = require('sequelize');
+// 
+
+const express = require('express'); 
+
+
 const saved = require('../controllers/Zconst_mqtt')
+// const routes = express.Router();
+
 const mqtt = require('mqtt');
-const Save = require('../models/Save');
+// const User = require('../models/User');
 const { store } = require('../controllers/UserController');
 // const express = require('express');
 // const app = express
 // app.use(express.json());
 var Broker_URL = 'mqtt://localhost';
 var Database_URL = 'localhost';
+
+const acess = require ('../acessos/databases');
+
+
+
+
 // const client  = mqtt.connect(broker) // host, pode ser o ip tbm: ex: '192.168.0.31'
 
 // mini interface
@@ -71,29 +86,66 @@ function mqtt_subscribe(err, granted) {
 };
 
 function mqtt_messsageReceived(topic, message, packet) {
+
+  const Sequelize = require('sequelize');
+const sequelize = new Sequelize ('exemplo','root','0101',{
+  host: 'localhost',
+  dialect: 'mysql'
+});
+
+
+
+
   // var message_str = message.toString(); //original
   var message_str = JSON.parse(message);
   // var message_json = JSON.parse(message_str)
   // console.log(message_json.nname)
   // console.log(message_json.email)
 
+
+
   d1 = message_str.nome
   d2 = message_str.email
 
-  // saved.store(d1,d2)
-  const { name, email } = message_str
-  async store()
-  await Save.create({name,email})
 
-  console.log(message_str.nome + message_str.email)
-  console.log(d1 + d2)
+
+  // // saved.store(d1,d2)
+  // User.create({name: "wal",email: "d2"})  
+
+  // console.log(message_str.nome + message_str.email)
+  console.log(d1 + d2 + "isso ")
   // var {nome, email} =  message_str.body
 
-  return message_str
   
+
+  const User2 = sequelize.define('dados', {
+    nome: {
+      type: Sequelize.STRING
+    },
+    email:{
+      type: Sequelize.STRING
+    } 
+  })
+
+  // User2.sync({force: true})
+  
+  User2.create({
+    nome: d1,
+    email: d2
+  })
+  
+  
+
+  return d1, d2
 }
 
-module.exports = mqtt_messsageReceived
+
+
+
+
+
+
+// module.exports = mqtt_messsageReceived
 
 
 

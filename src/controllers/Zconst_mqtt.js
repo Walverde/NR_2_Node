@@ -10,7 +10,7 @@ module.exports = {
         dd = j.name;
         ddd = j.email;
        // const { name, email} = req.body;
-        const save = await Save.create({ dd, ddd }) // vai criar os campos. onde o [create] é o medoto ultilizado. 
+        const save = await Save.create({ name, email }) // vai criar os campos. onde o [create] é o medoto ultilizado. 
         return res.json(save) // vai responder o usuario user, em formato json. 
     },
     //procurar postagem. (Vai ser usado para plotar frafico depois)
