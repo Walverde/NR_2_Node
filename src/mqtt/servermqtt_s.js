@@ -1,28 +1,15 @@
 // Imports
 
+const express = require('express'); 
+const saved = require('../controllers/Zconst_mqtt')
 const mqtt = require('mqtt');
-// const express = require('express');
-// const app = express
-// app.use(express.json());
+const { store } = require('../controllers/UserController');
 var Broker_URL = 'mqtt://localhost';
 var Database_URL = 'localhost';
-// const client  = mqtt.connect(broker) // host, pode ser o ip tbm: ex: '192.168.0.31'
+const acess = require ('../acessos/databases');
 
-// mini interface
-// const readline = require('readline').createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// })
-
-// readline.question('Insira o topico', clientId => {
-//   console.log('Topico escolhido ${Topic}!');
-//   readline.close();
-//   // return Topic
-// })
 
 var Topic = "node";
-var messagem = '{"nome": "nana","email":"anan@adsads2"}' 
-
 var options = {
 	clientId: 'node',
 	port: 1883,
@@ -35,59 +22,71 @@ var client  = mqtt.connect(Broker_URL, options);
 client.on('connect', mqtt_connect);
 // client.on('reconnect', mqtt_reconnect);
 // client.on('error', mqtt_error);
-// client.on('message', mqtt_messsageReceived);
-client.on('close', mqtt_close);
+client.on('message', mqtt_messsageReceived);
+// client.on('close', mqtt_close);
 
 
-// Publicando
+function mqtt_connect() {
+  console.log("Conectando ao brocker MQTT");
+  client.subscribe(Topic, mqtt_subscribe);
+};
 
-// client.on('connect', function () {
-    function mqtt_connect () {
-    client.subscribe(Topic, function (err) {
-      if (!err) {
-        client.publish(Topic, messagem)
-        // var msn = client.subscribe('node')
-        // console.log = (msn)
-        
-      }
-    })
-  }
-  function mqtt_close(){}
+function mqtt_subscribe(err, granted) {
+  console.log("Incrito no topico" + Topic);
+  if (err) {console.log(err);}
+};
+
+function mqtt_messsageReceived(topic, message, packet) {
+
+  // database..... (local)
+  const Sequelize = require('sequelize');
+  const sequelize = new Sequelize ('exemplo','root','0101',{
+  host: 'localhost',
+  dialect: 'mysql'
+});
 
 
-// inscrevendo. 
 
-// function mqtt_connect() {
-//   //console.log("Connecting MQTT");
-//   client.subscribe(Topic, mqtt_subscribe);
-// };
 
-// function mqtt_subscribe(err, granted) {
-//   console.log("Subscribed to " + Topic);
-//   if (err) {console.log(err);}
-// };
+  // var message_str = message.toString(); //original
+  var message_str = JSON.parse(message);
+  // var message_json = JSON.parse(message_str)
+  // console.log(message_json.nname)
+  // console.log(message_json.email)
 
-// function mqtt_messsageReceived(topic, message, packet) {
-//   var message_str = message.toString();
-//   var message_json = JSON.parse(message_str)
-//   console.log(message_json.name)
-//   console.log(message_json.email)
-//   return message_str
+
+
+  d1 = message_str.nome
+  d2 = message_str.email
+
+
+
+  // // saved.store(d1,d2)
+  // User.create({name: "wal",email: "d2"})  
+
+  // console.log(message_str.nome + message_str.email)
+  console.log(d1 + d2 + "isso")
+  // var {nome, email} =  message_str.body
+
   
 
-// module.exports = mqtt_messsageReceived
+  const User2 = sequelize.define('dados', {
+    nome: {
+      type: Sequelize.STRING
+    },
+    email:{
+      type: Sequelize.STRING
+    } 
+  })
+  
+  User2.create({
+    nome: d1,
+    email: d2
+  })
+  
+  
 
-
-
-// client.on('connect', function(){
-//   var msn = client.subscribe(topic)
-//   console.log =(msn.toString());
-// })
-
-// // client.on('connect', function (topic, message) {
-// //     // message is Buffer
-// //     console.log(message.toString())
-// //     client.end()
-// //   }) 
+  return d1, d2
+}
 
 
