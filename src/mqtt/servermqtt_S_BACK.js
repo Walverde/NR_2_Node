@@ -93,30 +93,19 @@ const sequelize = new Sequelize ('exemplo','root','0101',{
   dialect: 'mysql'
 });
 
-
-
-
   // var message_str = message.toString(); //original
   var message_str = JSON.parse(message);
   // var message_json = JSON.parse(message_str)
   // console.log(message_json.nname)
   // console.log(message_json.email)
-
-
-
   d1 = message_str.nome
   d2 = message_str.email
-
-
-
   // // saved.store(d1,d2)
   // User.create({name: "wal",email: "d2"})  
 
   // console.log(message_str.nome + message_str.email)
   console.log(d1 + d2 + "isso ")
   // var {nome, email} =  message_str.body
-
-  
 
   const User2 = sequelize.define('dados', {
     nome: {
@@ -134,8 +123,6 @@ const sequelize = new Sequelize ('exemplo','root','0101',{
     email: d2
   })
   
-  
-
   return d1, d2
 }
 
