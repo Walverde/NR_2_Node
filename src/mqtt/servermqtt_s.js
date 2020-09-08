@@ -2,11 +2,13 @@
 
 const express = require('express');
 const saved = require('../controllers/Zconst_mqtt')
-const mqtt = require('mqtt');
 const { store } = require('../controllers/UserController');
+const acess = require('../acessos/databases');
+
+const mqtt = require('mqtt');
 var Broker_URL = 'mqtt://192.168.0.31';
 var Database_URL = 'localhost';
-const acess = require('../acessos/databases');
+
 
 
 var Topic = "JE05/pub"; // topico aqui. 
