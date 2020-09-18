@@ -228,6 +228,8 @@ function mqtt_messsageReceived(topic, message, packet) {
     // divisão
   })
 
+
+  
   User2.create({
     VARMS: d1,
     VBRMS: d2,
