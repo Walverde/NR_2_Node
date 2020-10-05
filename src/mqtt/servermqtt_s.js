@@ -42,6 +42,11 @@ function mqtt_messsageReceived(topic, message, packet) {
 
   // database..... (local)
   const Sequelize = require('sequelize');
+  const sequelizeSilvio = new Sequelize('ddbeng30_teste', 'ddbeng30', 'X2cVnom385',
+    {
+      host: '162.241.2.79',
+      dialect: 'mysql'
+    });
   const sequelize = new Sequelize('Node', 'wal', '0101',
     {
       host: '192.168.0.31',
@@ -106,6 +111,7 @@ function mqtt_messsageReceived(topic, message, packet) {
   let msss = "Amostra console: "
   console.log(msss, d1, d2,)
   // var {nome, email} =  message_str.body
+
   const User2 = sequelize.define('DadosBin', {
     // divisão
     VARMS: {
@@ -229,7 +235,129 @@ function mqtt_messsageReceived(topic, message, packet) {
   })
 
 
-  
+  const nuvem = sequelizeSilvio.define('Enertracks', {
+    // divisão
+    VARMS: {
+      type: Sequelize.INTEGER,
+    },
+    VBRMS: {
+      type: Sequelize.INTEGER,
+    },
+    VCRMS: {
+      type: Sequelize.INTEGER,
+    },
+    // Corrente. 
+    IARMS: {
+      type: Sequelize.INTEGER,
+    },
+    IBRMS: {
+      type: Sequelize.INTEGER,
+    },
+    ICRMS: {
+      type: Sequelize.INTEGER,
+    },
+    //VA
+    VABRMS: {
+      type: Sequelize.INTEGER,
+    },
+    VBCRMS: {
+      type: Sequelize.INTEGER,
+    },
+    VCARMS: {
+      type: Sequelize.INTEGER,
+    },
+    VABCTRMS: {
+      type: Sequelize.INTEGER,
+    },
+    //PQS
+    PA: {
+      type: Sequelize.INTEGER,
+    },
+    PB: {
+      type: Sequelize.INTEGER,
+    },
+    PC: {
+      type: Sequelize.INTEGER,
+    },
+    PT: {
+      type: Sequelize.INTEGER,
+    },
+    QA: {
+      type: Sequelize.INTEGER,
+    },
+    QB: {
+      type: Sequelize.INTEGER,
+    },
+    QC: {
+      type: Sequelize.INTEGER,
+    },
+    QT: {
+      type: Sequelize.INTEGER,
+    },
+    SA: {
+      type: Sequelize.INTEGER,
+    },
+    SB: {
+      type: Sequelize.INTEGER,
+    },
+    SC: {
+      type: Sequelize.INTEGER,
+    },
+    ST: {
+      type: Sequelize.INTEGER,
+    },
+    //Fator de potencia
+    FPA: {
+      type: Sequelize.INTEGER,
+    },
+    FPB: {
+      type: Sequelize.INTEGER,
+    },
+    FPC: {
+      type: Sequelize.INTEGER,
+    },
+    FPT: {
+      type: Sequelize.INTEGER,
+    },
+    // KVH
+    KVARHA: {
+      type: Sequelize.INTEGER,
+    },
+    KVARHB: {
+      type: Sequelize.INTEGER,
+    },
+    KVARHC: {
+      type: Sequelize.INTEGER,
+    },
+    KVARHT: {
+      type: Sequelize.INTEGER,
+    },
+    KWHA: {
+      type: Sequelize.INTEGER,
+    },
+    KWHB: {
+      type: Sequelize.INTEGER,
+    },
+    KWHC: {
+      type: Sequelize.INTEGER,
+    },
+    KWHT: {
+      type: Sequelize.INTEGER,
+    },
+    // Outros
+    FREQ: {
+      type: Sequelize.INTEGER,
+    },
+    SERRS: {
+      type: Sequelize.INTEGER,
+    },
+    WRSSI: {
+      type: Sequelize.INTEGER
+    }
+    // divisão
+  })
+
+
   User2.create({
     VARMS: d1,
     VBRMS: d2,
@@ -269,6 +397,49 @@ function mqtt_messsageReceived(topic, message, packet) {
     SERRS: d36,
     WRSSI: d37
   })
+
+
+
+  nuvem.create({
+    VARMS: d1,
+    VBRMS: d2,
+    VCRMS: d3,
+    IARMS: d4,
+    IBRMS: d5,
+    ICRMS: d6,
+    VABRMS: d7,
+    VBCRMS: d8,
+    VCARMS: d9,
+    VABCTRMS: d10,
+    PA: d11,
+    PB: d12,
+    PC: d13,
+    PT: d14,
+    QA: d15,
+    QB: d16,
+    QC: d17,
+    QT: d18,
+    SA: d19,
+    SB: d20,
+    SC: d21,
+    ST: d22,
+    FPA: d23,
+    FPB: d24,
+    FPC: d25,
+    FPT: d26,
+    KVARHA: d27,
+    KVARHB: d28,
+    KVARHC: d29,
+    KVARHT: d30,
+    KWHA: d31,
+    KWHB: d32,
+    KWHC: d33,
+    KWHT: d34,
+    FREQ: d35,
+    SERRS: d36,
+    WRSSI: d37
+  })
+
 
   return d1, d2
 
