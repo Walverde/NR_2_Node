@@ -34,6 +34,8 @@ function mqtt_subscribe(err, granted) {
 };
 
 function mqtt_messsageReceived(topic, message, packet) {
+
+    // isso aqui vai ficar ou não aqui. 
     const control = require('../controllers/controltrack.controller.js')
     control.InsertsMqtt(message)
 
@@ -42,3 +44,5 @@ function mqtt_messsageReceived(topic, message, packet) {
     // const controller
 
 }
+
+module.exports = { mqtt_messsageReceived }
