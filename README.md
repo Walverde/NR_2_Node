@@ -57,9 +57,8 @@ Controle------------------------
 ✓ - receber pacote json via Mqtta
 ✓ - Parcear pacote json enviado/Mqtt
 ✓ - publicar dados do pacote json enviado do Mqtt no banco de dados, via sequelize. 
-x - configurar novas colunas: → KWHA, KWHB, KWHC, KWHT, 
-      └→ x - calcular pelo back-end. 
-x - Implementar graficos apexcharts.js
+
+
 
 
 
