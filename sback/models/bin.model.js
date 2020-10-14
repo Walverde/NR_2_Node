@@ -36,6 +36,18 @@ module.exports = (sequelize, Sequelize) => {
 		FPC: {
 			type: Sequelize.INTEGER,
 		},
+		KWHA: {
+			type: Sequelize.INTEGER,
+		},
+		KWHB: {
+			type: Sequelize.INTEGER,
+		},
+		KWHC: {
+			type: Sequelize.INTEGER,
+		},
+		KWHT: {
+			type: Sequelize.INTEGER,
+		},
 
 	});
 
