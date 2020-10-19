@@ -54,9 +54,12 @@ Controle------------------------
 ✓ - querys(Create, post, update e delete). 
 ✓ - conexão Mqtt
 ✓ - Receber messagem via Mqtt
-X - receber pacote json via Mqtta
-X - Parcear pacote json enviado/Mqtt
-X - publicar dados do pacote json enviado do Mqtt no banco de dados, via sequelize. 
+✓ - receber pacote json via Mqtta
+✓ - Parcear pacote json enviado/Mqtt
+✓ - publicar dados do pacote json enviado do Mqtt no banco de dados, via sequelize. 
+
+
+
 
 
 

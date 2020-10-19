@@ -230,6 +230,13 @@ function mqtt_messsageReceived(topic, message, packet) {
     },
     WRSSI: {
       type: Sequelize.INTEGER
+    },
+
+    KWHA: {
+      type: Sequelize.INTEGER
+    },
+    KWHB: {
+      type: Sequelize.INTEGER
     }
     // divisão
   })

@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const router = express.Router();
-const routes = require('./src/routes')
+const routes = require('../src/routes')
 const app = express();
 
 const path = __dirname + '/views_vue/public/'; // "instanciando" endereço dos aquivos estatics
