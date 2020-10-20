@@ -6,8 +6,7 @@ const controlerbin = db.bin;
 exports.InsertsMqtt = (msn) => {
     // var message_str = JSON.parse(msn);
     console.log(msn)
-    // data = message_str.DATA
-    data = msn.DATA
+    data = message_str.DATA
 
     // Tensão
     d1 = data.VARMS

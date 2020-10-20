@@ -1,9 +1,11 @@
 // Control ==========================================
 const env = {
-    database: 'Node_32',
+    database: 'Node',
+    // database: 'Node_32',
     username: 'wal',
     password: '0101',
-    host: '192.168.0.32',
+    host: '192.168.0.31',
+    // host: '192.168.0.32',
     dialect: 'mysql',
     pool: {
         max: 5,

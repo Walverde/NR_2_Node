@@ -27,7 +27,7 @@ client.on('connect', function () {
         // Quando a messagem chegar, esse função sera executada. 
         client.on('message', function (topic, message, packet) {
             var message_str = JSON.parse(message)
-            console.log('Imprimindo do APP ->' ,message_str)
+            // console.log('Imprimindo do APP ->' ,message_str)
             // data = message_str.DATA
             // console.log(data)
             // conctrl.InsertsMqtt(message)
