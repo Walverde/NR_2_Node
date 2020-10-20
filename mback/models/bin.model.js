@@ -2,52 +2,124 @@ const sequelize = require("sequelize");
 
 module.exports = (sequelize, Sequelize) => {
 	const Control = sequelize.define('EnertrackData', {
-		id_nome: { type: Sequelize.INTEGER, },
+		
 		VARMS: {
 			type: Sequelize.INTEGER,
-		},
-		VBRMS: {
+		  },
+		  VBRMS: {
 			type: Sequelize.INTEGER,
-		},
-		VCRMS: {
+		  },
+		  VCRMS: {
 			type: Sequelize.INTEGER,
-		},
-		// Corrente. 
-		IARMS: {
+		  },
+		  // Corrente. 
+		  IARMS: {
 			type: Sequelize.INTEGER,
-		},
-		IBRMS: {
+		  },
+		  IBRMS: {
 			type: Sequelize.INTEGER,
-		},
-		ICRMS: {
+		  },
+		  ICRMS: {
 			type: Sequelize.INTEGER,
-		},
-		PTA: { type: Sequelize.INTEGER, },
-		PTB: { type: Sequelize.INTEGER, },
-		PTC: { type: Sequelize.INTEGER, },
-		//VA
-
-		FPA: {
+		  },
+		  //VA
+		  VABRMS: {
 			type: Sequelize.INTEGER,
-		},
-		FPB: {
+		  },
+		  VBCRMS: {
 			type: Sequelize.INTEGER,
-		},
-		FPC: {
+		  },
+		  VCARMS: {
 			type: Sequelize.INTEGER,
-		},
-		KWHA: {
+		  },
+		  VABCTRMS: {
 			type: Sequelize.INTEGER,
-		},
-		KWHB: {
+		  },
+		  //PQS
+		  PA: {
 			type: Sequelize.INTEGER,
-		},
-		KWHC: {
+		  },
+		  PB: {
 			type: Sequelize.INTEGER,
-		},
-		KWHT: {
+		  },
+		  PC: {
 			type: Sequelize.INTEGER,
-		},
+		  },
+		  PT: {
+			type: Sequelize.INTEGER,
+		  },
+		  QA: {
+			type: Sequelize.INTEGER,
+		  },
+		  QB: {
+			type: Sequelize.INTEGER,
+		  },
+		  QC: {
+			type: Sequelize.INTEGER,
+		  },
+		  QT: {
+			type: Sequelize.INTEGER,
+		  },
+		  SA: {
+			type: Sequelize.INTEGER,
+		  },
+		  SB: {
+			type: Sequelize.INTEGER,
+		  },
+		  SC: {
+			type: Sequelize.INTEGER,
+		  },
+		  ST: {
+			type: Sequelize.INTEGER,
+		  },
+		  //Fator de potencia
+		  FPA: {
+			type: Sequelize.INTEGER,
+		  },
+		  FPB: {
+			type: Sequelize.INTEGER,
+		  },
+		  FPC: {
+			type: Sequelize.INTEGER,
+		  },
+		  FPT: {
+			type: Sequelize.INTEGER,
+		  },
+		  // KVH
+		  KVARHA: {
+			type: Sequelize.INTEGER,
+		  },
+		  KVARHB: {
+			type: Sequelize.INTEGER,
+		  },
+		  KVARHC: {
+			type: Sequelize.INTEGER,
+		  },
+		  KVARHT: {
+			type: Sequelize.INTEGER,
+		  },
+		  KWHA: {
+			type: Sequelize.INTEGER,
+		  },
+		  KWHB: {
+			type: Sequelize.INTEGER,
+		  },
+		  KWHC: {
+			type: Sequelize.INTEGER,
+		  },
+		  KWHT: {
+			type: Sequelize.INTEGER,
+		  },
+		  // Outros
+		  FREQ: {
+			type: Sequelize.INTEGER,
+		  },
+		  SERRS: {
+			type: Sequelize.INTEGER,
+		  },
+		  WRSSI: {
+			type: Sequelize.INTEGER
+		  }
 
 	});
 
