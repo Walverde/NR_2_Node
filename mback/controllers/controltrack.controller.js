@@ -1,8 +1,7 @@
-const { Sequelize } = require('../config/db.config.js');
+
 const db = require('../config/db.config');
 const Customer = db.customers;
 
-// const Op = db.Sequelize.Op;
 
 
 exports.InsertsMqtt = (message_str) => {
