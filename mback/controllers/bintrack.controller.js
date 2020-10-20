@@ -1,12 +1,13 @@
 
 const db = require('../config/db.config');
 const controlerbin = db.bin;
+const cor = require('../settings/cores')
 
 
 exports.InsertsMqtt = (msn) => {
     // var message_str = JSON.parse(msn);
-    console.log(msn)
-    data = message_str.DATA
+    console.log(`${cor.FgCyan}Executando do ${cor.FgGreen}bintrack.controller${cor.Reset}`)
+    data = msn.DATA
 
     // Tensão
     d1 = data.VARMS

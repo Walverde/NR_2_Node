@@ -1,14 +1,13 @@
 
 const db = require('../config/db.config');
-const Customer = db.customers;
+const controlercon = db.con;
+const cor = require('../settings/cores')
 
 
+exports.InsertsMqtt = (msn) => {
+    console.log(`${cor.FgCyan}Executando do ${cor.FgGreen}controltrack.controller${cor.Reset}`)
 
-exports.InsertsMqtt = (message_str) => {
-    var message_str = JSON.parse(message);
-
-    data = message_str.DATA
-
+    data = msn.DATA
 
     d1 = data.VARMS
     d2 = data.VBRMS
@@ -22,13 +21,11 @@ exports.InsertsMqtt = (message_str) => {
     d8 = data.PTB
     d9 = data.PTC
     // Fator de potencia
-
     d10 = data.FPA
     d11 = data.FPB
     d12 = data.FPC
 
-
-    Customer.create({
+    controlercon.create({
         VARMS: d1,
         VBRMS: d2,
         VCRMS: d3,

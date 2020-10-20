@@ -1,24 +1,24 @@
-// const control = require('../controllers/controltrack.controller.js')
+// Databases ---------------------------------------------------------
 const binctrl = require('./mback/controllers/bintrack.controller')
 const conctrl = require('./mback/controllers/controltrack.controller')
-// const { options } = require('./mback/mqtt/config/mqttconfig')
+
+//Cor-----------------------------------------------------------------
+const cor = require('./mback/settings/cores')
 
 // Mqtt --------------------------------------------------------------
 const mqtts = require('./mback/mqtt/config/mqttconfig')
-// const mqtt = require('mqtt')
 
+// const mqtt = require('mqtt')
 // var mqtt = mqtts.mqtt
 // var options = mqtts.options
+
 var client = mqtts.connecting
 var env = mqtts.envs
-
 
 // Energia = Potência x Tempo
 // 103 kWh = Potência x 720 h
 // 103 kWh/720 h = Potência
 // Potência = 0,143 kW ou 143 W
-
-
 // var client = mqtt.connect(, options);
 
 
@@ -30,8 +30,10 @@ client.on('connect', function () {
             // console.log('Imprimindo do APP ->' ,message_str)
             // data = message_str.DATA
             // console.log(data)
-            // conctrl.InsertsMqtt(message)
+            console.log(`${cor.FgGreen}BinCtrl${cor.Reset}`)
             binctrl.InsertsMqtt(message_str)
+            console.log(`${cor.FgRed}ConCtrl${cor.Reset}`)
+            conctrl.InsertsMqtt(message_str)
 
             // console.log("Received '" + message + "' on '" + topic + "'");
         });
