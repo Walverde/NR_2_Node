@@ -26,7 +26,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 
-db.con = require('../models/control.model')(sequelize, Sequelize);
+db.con = require('../models/ctrl.model')(sequelize, Sequelize);
 db.bin = require('../models/bin.model')(sequelize, Sequelize);
 
 // db.configs = require('../model/config.model')(sequelize, Sequelize);

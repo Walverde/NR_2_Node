@@ -1,8 +1,8 @@
 const sequelize = require("sequelize");
 
 module.exports = (sequelize, Sequelize) => {
-	const Control = sequelize.define('EnertrackData', {
-		id_nome: { type: Sequelize.INTEGER, },
+	const Control = sequelize.define('CtrlData', {
+
 		VARMS: {
 			type: Sequelize.INTEGER,
 		},
@@ -12,7 +12,7 @@ module.exports = (sequelize, Sequelize) => {
 		VCRMS: {
 			type: Sequelize.INTEGER,
 		},
-		// Corrente. 
+		// Correntes
 		IARMS: {
 			type: Sequelize.INTEGER,
 		},
@@ -22,11 +22,17 @@ module.exports = (sequelize, Sequelize) => {
 		ICRMS: {
 			type: Sequelize.INTEGER,
 		},
-		PTA: { type: Sequelize.INTEGER, },
-		PTB: { type: Sequelize.INTEGER, },
-		PTC: { type: Sequelize.INTEGER, },
-		//VA
-
+		// Potencia.  
+		PTA: {
+			type: Sequelize.INTEGER,
+		},
+		PTB: {
+			type: Sequelize.INTEGER,
+		},
+		PTC: {
+			type: Sequelize.INTEGER,
+		},
+		//Fatores de potencia
 		FPA: {
 			type: Sequelize.INTEGER,
 		},
@@ -34,6 +40,23 @@ module.exports = (sequelize, Sequelize) => {
 			type: Sequelize.INTEGER,
 		},
 		FPC: {
+			type: Sequelize.INTEGER,
+		},
+		// Consumos. 
+
+		KWHA: {
+			type: Sequelize.INTEGER,
+		},
+		KWHB: {
+			type: Sequelize.INTEGER,
+		},
+		KWHC: {
+			type: Sequelize.INTEGER,
+		},
+		KWHT: {
+			type: Sequelize.INTEGER,
+		},
+		data: {
 			type: Sequelize.INTEGER,
 		},
 
