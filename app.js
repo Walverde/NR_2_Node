@@ -46,18 +46,19 @@ const env = mqtts.envs
 // })
 
 clientcon.on('connect', function () {
-    clientcon.subscribe(env.Topic[1], function () {
+    clientcon.subscribe(env.Topic, function () { // Tentativa de incersao em dois topicos. 
     // clientcon.subscribe(env.Topic, function () {
         // Quando a messagem chegar, esse função sera executada. 
         clientcon.on('message', function (topic, message, packet) {
             var message_str = JSON.parse(message)
-            console.log('Imprimindo do APP ->' ,message_str)
+            // console.log('Imprimindo do APP ->' ,message_str)
+            console.log(`${cor.FgCyan}Imprimindo do APP ->${cor.FgYellow} Registro inserido ${cor.FgBlack}${cor.BgGreen}ConCtrl${cor.Reset}`)
             // data = message_str.DATA
             // console.log(data)
             // console.log(`${cor.FgGreen}BinCtrl${cor.Reset}`)
             // binctrl.InsertsMqtt(message_str)
 
-            console.log(`${cor.FgRed}ConCtrl${cor.Reset}`)
+            // console.log(`${cor.FgRed}ConCtrl${cor.Reset}`)
             // console.log(`${cav.cav(cor.FgGreen,cor.Reset)}`) // CAV****
             mconctrl.InsertsMqtt(message_str)
 
