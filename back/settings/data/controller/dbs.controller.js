@@ -1,28 +1,32 @@
 
-
+const cor = require('../../cores')
 const db = require('../config/db.config.js');
-const Customer = db.creds;
+const Busca = db.busca;
 
 class controlers {
 
     create = (dados) => {
         // console.log(dados)
         // Save to MySQL database
-        Customer.create({
+        Busca.create({
             setnome: dados.setnome,
-            user: dados.user,
-            senha: dados.senha,
             categoria: dados.categoria,
-        }).then(customer => {
-            console.log('\x1b[32m', 'Credencial:', '\x1b[36m', dados.setnome, '\x1b[32m', 'inserida com sucesso! :D ', '\x1b[37m')
+            pmin: dados.pmin,
+            pmax: dados.pmax,
+            mensagem: dados.mensagem,
+            valordebusca: dados.valordebusca
+        }).then(busca => {
+            // console.log('\x1b[32m', 'Configurações de busca:', '\x1b[36m', dados.setnome, '\x1b[32m', 'inserida com sucesso! :D ', '\x1b[37m')
+            console.log(`${cor.FgGreen}'Configurações de busca: ${cor.FgYellow}${dados.setnome}${cor.FgGreen}, inserida com sucesso!${cor.Reset}`)
         }).catch(err => {
-            console.log('\x1b[31m', 'Erro ao inserir dados :(', '\x1b[37m')
+            console.log(`${cor.FgRed}Erro ao inserir dados :( ${cor.FgYellow}${err}${cor.Reset}` )
         })
     };
 
     async index() {
         try {
-            const users = await Customer.findAll({
+            // console.log(`${cor.FgRed}INDEX${cor.Reset}`)
+            const users = await Busca.findAll({
                 attributes: [
                     'setnome',
                 ]
@@ -37,7 +41,7 @@ class controlers {
     }
 
     Excluir = (itemaserexpluido) => {
-        Customer.destroy({
+        Busca.destroy({
             where: { setnome: itemaserexpluido }
         }).then(() => {
             console.log('\x1b[31m', 'Item,', itemaserexpluido, 'Excluido!', '\x1b[37m')
@@ -45,16 +49,16 @@ class controlers {
             console.log("Erro ao excluir o Item" + err)
         })
     }
-    // Update a Customer
+    // Update a Busca
 
-    editar = (itemasereditado, setmenu) => {
+    editar = (itemasereditado, setmenu) => { // Menu de atualização de dados do grupo de busca. 
         const updatecampo = itemasereditado.s_editar
         const newvalue = itemasereditado.valor
         var idset = setmenu.id
 
 
         if (updatecampo === `Nome`) {
-            Customer.update({
+            Busca.update({
                 // updatecampo: `${newvalue}`
                 setnome: newvalue
                 // updatecampo : newvalue
@@ -66,10 +70,10 @@ class controlers {
                 console.log('\x1b[31m', 'Erro ao atualizar dados :(', '\x1b[37m')
             })
             // updatecampo = 'setnome'
-        } else if (updatecampo === `Login`) {
-            Customer.update({
+        } else if (updatecampo === `Categoria`) {
+            Busca.update({
                 // updatecampo: `${newvalue}`
-                user: newvalue
+                categoria: newvalue
                 // updatecampo : newvalue
             },
                 { where: { id: idset } }
@@ -79,10 +83,10 @@ class controlers {
                 console.log('\x1b[31m', 'Erro ao atualizar dados :(', '\x1b[37m')
             })
             // updatecampo = `user`
-        } else if (updatecampo === `Senha`) {
-            Customer.update({
+        } else if (updatecampo === `Pmin`) {
+            Busca.update({
                 // updatecampo: `${newvalue}`
-                senha: newvalue
+                pmin: newvalue
                 // updatecampo : newvalue
             },
                 { where: { id: idset } }
@@ -92,10 +96,38 @@ class controlers {
                 console.log('\x1b[31m', 'Erro ao atualizar dados :(', '\x1b[37m')
             })
             // updatecampo = `senha`
-        } else {
-            Customer.update({
+        } else if (updatecampo === `Pmax`) {
+            Busca.update({
                 // updatecampo: `${newvalue}`
-                categoria: newvalue
+                pmax: newvalue
+                // updatecampo : newvalue
+            },
+                { where: { id: idset } }
+            ).then(() => {
+                console.log('\x1b[32m', 'Credencial:', '\x1b[36m', setmenu.setnome, '\x1b[32m', 'Atualizada com sucesso! :D ', '\x1b[37m')
+            }).catch(err => {
+                console.log('\x1b[31m', 'Erro ao atualizar dados :(', '\x1b[37m')
+            })
+            // updatecampo = `senha`
+        } else if (updatecampo === `Mensagem`) {
+            Busca.update({
+                // updatecampo: `${newvalue}`
+                mensagem: newvalue
+                // updatecampo : newvalue
+            },
+                { where: { id: idset } }
+            ).then(() => {
+                console.log('\x1b[32m', 'Credencial:', '\x1b[36m', setmenu.setnome, '\x1b[32m', 'Atualizada com sucesso! :D ', '\x1b[37m')
+            }).catch(err => {
+                console.log('\x1b[31m', 'Erro ao atualizar dados :(', '\x1b[37m')
+            })
+            // updatecampo = `senha`
+        }
+        else if (updatecampo === `Valor de busca`){
+            console.log("Executando UPDATE em >- valordebusca")
+            Busca.update({
+                // updatecampo: `${newvalue}`
+                valordebusca: newvalue
                 // updatecampo : newvalue
             },
                 { where: { id: idset } }
@@ -115,22 +147,21 @@ class controlers {
 
         
     };
-
-
     async returnindex(itemaseratualizado) {
         try {
-            const foredit = await Customer.findAll({
+            const foredit = await Busca.findAll({
                 where: { setnome: itemaseratualizado },
                 attributes: [
                     'id',
                     'setnome',
-                    'user',
-                    'senha',
                     'categoria',
+                    'pmin',
+                    'pmax',
+                    'mensagem',
+                    'valordebusca',
                     'createdAt',
                     'updatedAt']
             })
-
             var dataValues = foredit.map((a) => a.dataValues)
 
             // console.log('De dentro do Controllers,', dataValues)
@@ -139,8 +170,6 @@ class controlers {
 
         } catch (error) { console.log('Errou: ' + error) }
     }
-
-
 }
 
 module.exports = new controlers();

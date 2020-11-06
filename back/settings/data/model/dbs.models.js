@@ -3,11 +3,11 @@
 
 module.exports = (sequelize, Sequelize) => {
 
-const Cads = sequelize.define('Credenciais', {
+const Cads = sequelize.define('conections', {
     setnome: {
         type: Sequelize.STRING
     },
-    user: {
+    host: {
         type: Sequelize.STRING
     },
     senha: {
@@ -21,9 +21,5 @@ const Cads = sequelize.define('Credenciais', {
 
 
 return Cads 
-
-
 }
-
-
 // module.exports = models

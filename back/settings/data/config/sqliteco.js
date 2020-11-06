@@ -1,4 +1,4 @@
-const { dirname } = require('path');
+
 const path = require('path')
 const dirPath = path.join(__dirname, '/data.sqlite3')
 

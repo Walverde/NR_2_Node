@@ -19,10 +19,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
  
-
 //Models/tables // AQUI FOI REQUERIDO OS MODELOS // 
-db.creds = require('../model/cads.models')(sequelize, Sequelize);
-db.busca = require('../model/busca.models')(sequelize, Sequelize);
- 
- 
+db.dbs = require('../model/dbs.models')(sequelize, Sequelize);
+
 module.exports = db;

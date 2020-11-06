@@ -4,9 +4,13 @@ const controlercon = db.con;
 const cor = require('../settings/cores')
 
 exports.InsertsMqtt = (msn) => {
+
+    // msn, é o pacote recebido do MQTT.
     console.log(`${cor.FgCyan}Executando do ${cor.FgGreen}+ctrl.controller.js${cor.Reset}`)
+    
+    // Dot notation para extrair dados. 
     data = msn.DATA
-    // data = msn
+    
     var kwha = data.VARMS * data.IARMS * 1
     var kwhb = data.VBRMS * data.IBRMS * 1
     var kwhc = data.VCRMS * data.ICRMS * 1

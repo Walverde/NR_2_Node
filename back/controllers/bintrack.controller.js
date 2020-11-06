@@ -5,8 +5,11 @@ const cor = require('../settings/cores')
 
 
 exports.InsertsMqtt = (msn) => {
-    // var message_str = JSON.parse(msn);
+
+    // msn, é o pacote recebido do MQTT.
     console.log(`${cor.FgCyan}Executando do ${cor.FgGreen}bintrack.controller${cor.Reset}`)
+
+    // Dot notation para extrair dados. 
     data = msn.DATA
 
     // Tensão
