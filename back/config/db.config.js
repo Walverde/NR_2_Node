@@ -29,6 +29,8 @@ db.sequelize = sequelize;
 db.con = require('../models/ctrl.model')(sequelize, Sequelize);
 db.bin = require('../models/bin.model')(sequelize, Sequelize);
 
+db.bnuto = require('../models/bin.minuto.model')(sequelize, Sequelize);
+
 // db.configs = require('../model/config.model')(sequelize, Sequelize);
 // db.customers = require('../model/customer.model.js')(sequelize, Sequelize);
 
