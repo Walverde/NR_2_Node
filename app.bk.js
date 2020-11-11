@@ -20,19 +20,19 @@ const env = mqtts.envs
 // var client = mqtt.connect(, options);
 
 // const insert = function() {
-clientcon.on('connect', function () {
-    clientcon.subscribe(env.Topic, function () {
-        // Quando a messagem chegar, essa função sera executada. 
-        setTimeout(function () {
-            clientcon.on('message', function (topic, message, packet) {
-                var message_str = JSON.parse(message)
-                console.log(`${cor.FgCyan}Imprimindo do APP ->${cor.FgYellow} Registro inserido ${cor.FgBlack}${cor.BgGreen}ConCtrl${cor.Reset}`)
-                //inserindo no bando de dados os dados recibidos no MQTT
-                binuto.InsertsMqtt(message_str)
-            });
-        }, 10 * 1000)
-    });
-})
+// clientcon.on('connect', function () {
+//     clientcon.subscribe(env.Topic, function () {
+//         // Quando a messagem chegar, essa função sera executada. 
+//         setTimeout(function () {
+//             clientcon.on('message', function (topic, message, packet) {
+//                 var message_str = JSON.parse(message)
+//                 console.log(`${cor.FgCyan}Imprimindo do APP ->${cor.FgYellow} Registro inserido ${cor.FgBlack}${cor.BgGreen}ConCtrl${cor.Reset}`)
+//                 //inserindo no bando de dados os dados recibidos no MQTT
+//                 binuto.InsertsMqtt(message_str)
+//             });
+//         }, 10 * 1000)
+//     });
+// })
 // }
 
 
@@ -40,20 +40,23 @@ clientcon.on('connect', function () {
 //     insert()
 // }, 10 * 1000)
 
-// setTimeout(function () {
-//     clientcon.on('connect', function () {
-//         clientcon.subscribe(env.Topic, function () {
-//             // Quando a messagem chegar, esse função sera executada. 
-//             clientcon.on('message', function (topic, message, packet) {
-//                 var message_str = JSON.parse(message)
-//                 console.log(`${cor.FgCyan}Imprimindo do APP ->${cor.FgYellow} Registro inserido ${cor.FgBlack}${cor.BgGreen}ConCtrl${cor.Reset}`)
-//                 //inserindo no bando de dados os dados recibidos no MQTT
-//                 binuto.InsertsMqtt(message_str)
 
-//             });
-//         });
-//     })
-// }, 30 * 1000)
+
+setTimeout(function () {
+    
+    clientcon.on('connect', function () {
+        clientcon.subscribe(env.Topic, function () {
+            // Quando a messagem chegar, esse função sera executada. 
+            clientcon.on('message', function (topic, message, packet) {
+                var message_str = JSON.parse(message)
+                console.log(`${cor.FgCyan}Imprimindo do APP ->${cor.FgYellow} Registro inserido ${cor.FgBlack}${cor.BgGreen}ConCtrl${cor.Reset}`)
+                //inserindo no bando de dados os dados recibidos no MQTT
+                binuto.InsertsMqtt(message_str)
+
+            });
+        });
+    })
+}, 30 * 1000)
 
 
     // clientcon.on('connect', function () {
