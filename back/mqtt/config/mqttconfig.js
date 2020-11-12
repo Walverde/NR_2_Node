@@ -14,7 +14,7 @@ var client = mqtt.connect(env.broker, options)
 // client.on('reconnect', mqtt_reconnect);
 // client.on('error', mqtt_error);
 // client.on('message', mqtt_messsageReceived);
-var close = client.on('close', mqtt_close); // Tentando. 
+// var close = client.on('close', mqtt_close); // Tentando. 
 
 
 // function mqtt_connect() {
@@ -39,7 +39,7 @@ var close = client.on('close', mqtt_close); // Tentando.
 const mqtts = {}
 
 mqtts.connecting = client
-mqtts.close = close // Tentando.  
+// mqtts.close = close // Tentando.  
 // mqtts.mqtt_messsageReceived
 // mqtts.mqtt = mqtt
 // mqtts.options = options

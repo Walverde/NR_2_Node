@@ -1,17 +1,17 @@
 // Databases ---------------------------------------------------------
-const binctrl = require('./back/controllers/bintrack.controller')
+// const binctrl = require('./back/controllers/bintrack.controller')
 // const configs = require('./back/settings/data/controller/dbs.controller')
-const mconctrl = require('./back/controllers/+ctrl.controller')
-const binuto = require('./back/controllers/binuto.controller')
+// const mconctrl = require('./back/controllers/+ctrl.controller')
+
 //Cor-----------------------------------------------------------------
 const cor = require('./back/settings/cores')
 // Mqtt --------------------------------------------------------------
-const mqtts = require('./back/mqtt/config/mqttconfig')
-const cav = require('./cav')
+// const mqtts = require('./back/mqtt/config/mqttconfig')
+// const cav = require('./cav')
 //--------------------------------------------------------------------
-const clientbin = mqtts.connecting
-const clientcon = mqtts.connecting
-const env = mqtts.envs
+// const clientbin = mqtts.connecting
+// const clientcon = mqtts.connecting
+// const env = mqtts.envs
 
 // Energia = Potência x Tempo
 // 103 kWh = Potência x 720 h
@@ -44,18 +44,27 @@ const env = mqtts.envs
 
 setTimeout(function () {
     
+    console.log("Inserindo dados")
+    const mqtts = require('./back/mqtt/config/mqttconfig')
+    const env = mqtts.envs
+    const clientcon = mqtts.connecting
+    console.log('Executanod função Mqtt')
     clientcon.on('connect', function () {
         clientcon.subscribe(env.Topic, function () {
-            // Quando a messagem chegar, esse função sera executada. 
             clientcon.on('message', function (topic, message, packet) {
+                console.log(`Mensagem recebida: ${message}`)
                 var message_str = JSON.parse(message)
+                console.log(message_str)
                 console.log(`${cor.FgCyan}Imprimindo do APP ->${cor.FgYellow} Registro inserido ${cor.FgBlack}${cor.BgGreen}ConCtrl${cor.Reset}`)
-                //inserindo no bando de dados os dados recibidos no MQTT
-                binuto.InsertsMqtt(message_str)
-
+                let binctrl = require('./back/controllers/bintrack.controller')
+                binctrl.InsertsMqtt(message_str)
+                clientcon.end()
+                console.log('M0')
+                continue 
             });
         });
     })
+
 }, 30 * 1000)
 
 
