@@ -17,7 +17,6 @@ setInterval(function () {
     ss = ss + 1
     // console.log(ss, "s");
     if (ss == 10) {
-        
         console.log("Inserindo dados")
         const mqtts = require('./back/mqtt/config/mqttconfig')
         const env = mqtts.envs
@@ -53,15 +52,27 @@ setInterval(function () {
 }, delay);
 
 
-// ================ Tentativa com o TRY =====================
 
-async function todo(){
-    try{}catch(err){console.log("Erro Code: >>>>> ", err)}
-}
 
-todo()
 
-// ================ Tentativa com o TRY =====================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // FUNCIONAIS -----------------------------------------------------------------------------
 
 
