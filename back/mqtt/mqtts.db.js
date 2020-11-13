@@ -11,7 +11,7 @@ const db = mysql.createConnection({
     database: 'ddbeng30_teste'
 })
 
-db.connect(() => { 
+db.connect(() => {
     console.log('DB conctado')
 })
 
@@ -21,11 +21,12 @@ client.on('connect', () => { // Quando o evento "connect" ocorre, essa arrow fun
 // Envendo de chagada de message 
 
 console.log("Antes") // Controle de console. 
-// setTimeout(function () { <----------------- Função descomentada setTimeout. (INICIO) 
+// setTimeout(function () { <----------------- Função descomentada setTimeout. (INICO) 
     client.on('message', (topic, message) => { // Quando o evento "message" ocorre, essa arrow function é acionada. 
         let datas = JSON.parse(message)
         let data = datas.DATA
         console.log('Durante') // Controle de console. 
+
 
         // Banco de Dados
         let sql = 'insert into BinDataMinutos set ?'

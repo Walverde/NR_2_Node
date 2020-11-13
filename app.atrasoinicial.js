@@ -35,7 +35,7 @@ setInterval(function () {
             });
         })
     }
-    console.log(`${(hora <= 9 ? "0" + hora : hora)} : ${(minuto <= 9 ? "0" + minuto : minuto)} : ${(ss <= 9 ? "0" + ss : ss)}`)
+    // console.log(`${(hora <= 9 ? "0" + hora : hora)} : ${(minuto <= 9 ? "0" + minuto : minuto)} : ${(ss <= 9 ? "0" + ss : ss)}`)
     if (ss == segmin) {
         minuto = minuto + 1
         // console.log(`${cor.FgCyan}${minuto}m${cor.Reset}`)
