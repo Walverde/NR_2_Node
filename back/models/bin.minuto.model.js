@@ -12,7 +12,7 @@ module.exports = (sequelize, Sequelize) => {
 		VCRMS: {
 			type: Sequelize.INTEGER,
 		},
-		// Corrente. 
+		// Correntes
 		IARMS: {
 			type: Sequelize.INTEGER,
 		},
@@ -22,57 +22,17 @@ module.exports = (sequelize, Sequelize) => {
 		ICRMS: {
 			type: Sequelize.INTEGER,
 		},
-		//VA
-		VABRMS: {
+		// Potencia.  
+		PTA: {
 			type: Sequelize.INTEGER,
 		},
-		VBCRMS: {
+		PTB: {
 			type: Sequelize.INTEGER,
 		},
-		VCARMS: {
+		PTC: {
 			type: Sequelize.INTEGER,
 		},
-		VABCTRMS: {
-			type: Sequelize.INTEGER,
-		},
-		//PQS
-		PA: {
-			type: Sequelize.INTEGER,
-		},
-		PB: {
-			type: Sequelize.INTEGER,
-		},
-		PC: {
-			type: Sequelize.INTEGER,
-		},
-		PT: {
-			type: Sequelize.INTEGER,
-		},
-		QA: {
-			type: Sequelize.INTEGER,
-		},
-		QB: {
-			type: Sequelize.INTEGER,
-		},
-		QC: {
-			type: Sequelize.INTEGER,
-		},
-		QT: {
-			type: Sequelize.INTEGER,
-		},
-		SA: {
-			type: Sequelize.INTEGER,
-		},
-		SB: {
-			type: Sequelize.INTEGER,
-		},
-		SC: {
-			type: Sequelize.INTEGER,
-		},
-		ST: {
-			type: Sequelize.INTEGER,
-		},
-		//Fator de potencia
+		//Fatores de potencia
 		FPA: {
 			type: Sequelize.INTEGER,
 		},
@@ -82,22 +42,8 @@ module.exports = (sequelize, Sequelize) => {
 		FPC: {
 			type: Sequelize.INTEGER,
 		},
-		FPT: {
-			type: Sequelize.INTEGER,
-		},
-		// KVH
-		KVARHA: {
-			type: Sequelize.INTEGER,
-		},
-		KVARHB: {
-			type: Sequelize.INTEGER,
-		},
-		KVARHC: {
-			type: Sequelize.INTEGER,
-		},
-		KVARHT: {
-			type: Sequelize.INTEGER,
-		},
+		// Consumos. 
+
 		KWHA: {
 			type: Sequelize.INTEGER,
 		},
@@ -110,16 +56,10 @@ module.exports = (sequelize, Sequelize) => {
 		KWHT: {
 			type: Sequelize.INTEGER,
 		},
-		// Outros
-		FREQ: {
-			type: Sequelize.INTEGER,
+		data: {
+			type: Sequelize.STRING,
 		},
-		SERRS: {
-			type: Sequelize.INTEGER,
-		},
-		WRSSI: {
-			type: Sequelize.INTEGER
-		}
+
 
 	});
 
