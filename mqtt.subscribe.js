@@ -1,10 +1,14 @@
 let mqtt = require('mqtt') // Biblioteca
 let client = mqtt.connect('mqtt:192.168.0.31:1883')// Parâmetros de conexão. 
-let topic = "test" // Tópico
+let topic = "JE05/pub" // Tópico
+
+console.log('inicio')
 
 
 client.on('connect',()=>{ // Quando o evento connect ocorre, essa arrow function é acionada. 
+    console.log("incrito")
     client.subscribe(topic) // Função de inscrição no topico. (Informado acima, "topic")
+
 })
 
 client.on('message', (topic, message) => { // Quando o evento message ocorre, essa arrow function é acionada. 

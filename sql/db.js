@@ -26,7 +26,6 @@ async function select() {
     return rows
 }
 
-
 // A solução esta aqui!!!!!!!!!!!!!!!!!!!!!
 //https://www.youtube.com/watch?v=2XBWTEbGw4w&feature=youtu.be&ab_channel=LuizTools
 // INSERT
@@ -73,6 +72,7 @@ async function insertointu(data) {
         WRSSI: data.WRSSI
     }
     await conn.query(sql, values)
+    console.log("Daods inserdos com sucesso")
 
 }
 

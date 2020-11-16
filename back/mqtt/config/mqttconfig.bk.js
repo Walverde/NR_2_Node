@@ -1,6 +1,6 @@
-
+// const { port } = require('./env')
 const env = require('./env')
-const mqtt = require('mqtt'); // Biblioteca
+const mqtt = require('mqtt');
 
 
 var options = {
@@ -9,19 +9,7 @@ var options = {
     keepalive: env.keepalive
 }
 
-var client = mqtt.connect(env.broker, options) // Host(192.168.0.31) e pacote de configuração. 
-
-var subscrive = function (topic) {
-    console.log('Inscrevendo no topico: ', topic)
-    client.on('connect', () => { // Quando o evento connect ocorre, essa arrow function é acionada. 
-        client.subscribe(topic) // Função de inscrição no topico. (Informado acima, "topic")
-    })
-    client.on('message', (topic, message) => { // Quando o evento message ocorre, essa arrow function é acionada. 
-        message = message.toString() // Converte o pacote recebido em uma String. (Para a bublicação no banco de dados, usei o JSON.parse, esse converte o pacte em um JSON. Assim podendo usaro o dot-notation posteriormente)
-        // console.log(message) //  Controle de console. 
-    })
-    return this.message
-}
+var client = mqtt.connect(env.broker, options)
 
 // client.on('connect', mqtt_connect);
 // client.on('reconnect', mqtt_reconnect);
@@ -50,8 +38,6 @@ var subscrive = function (topic) {
 
 
 const mqtts = {}
-
-mqtts.subscribe = subscrive
 
 mqtts.connecting = client
 // mqtts.close = close // Tentando.  
