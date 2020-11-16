@@ -1,4 +1,5 @@
 let mqtt = require('mqtt') // Biblioteca
+const db = require('./sql/db')
 let client = mqtt.connect('mqtt:192.168.0.31:1883')// Parâmetros de conexão. 
 let topic = "JE05/pub" // Tópico
 let cont = 1;
